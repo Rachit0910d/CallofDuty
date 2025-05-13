@@ -4,14 +4,14 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.sql.SQLOutput;
 
-public class Book {
+public class Book { // a Book named class is made 
     String title;
     String author;
     int isbn;
     static int totalBooks;
     boolean isBorrowed;
 
-    static {
+    static {  // static instance is initialized
         totalBooks = 0;
     }
 
@@ -19,23 +19,23 @@ public class Book {
         totalBooks++;
     }
 
-    Book(int isbn, String title, String author){
+    Book(int isbn, String title, String author){  // constructor is made
         this.isbn = isbn;
         this.title = title;
         this.author = author;
     }
 
-    Book(int isbn) {
+    Book(int isbn) {  // when user only have isbn no. of the book
         this.isbn = isbn;
         this.title = "Unknown";
         this.author = "Unknown";
     }
 
-    static int getTotalBooks(int totalBooks){
+    static int getTotalBooks(int totalBooks){  // check total books initialized
         return Book.totalBooks;
     }
 
-    void BorrowBook(){
+    void BorrowBook(){      // check the book is either borrowed or not
         if(isBorrowed){
             System.out.println("Book is Already Borrowed.");
         }
@@ -45,7 +45,7 @@ public class Book {
         }
     }
 
-    void ReturnBook(){
+    void ReturnBook(){    // check the book is either returned or not
         if(isBorrowed){
             this.isBorrowed = false;
             System.out.println("Hope you enjoy "+this.title+" book. Please give some review.");
@@ -55,7 +55,7 @@ public class Book {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {           // calling by making objects
         Book SystemDesigning = new Book(1, "Design", "RajpalYadav");
         Book DeepKnowledge = new Book(2, "Unknown", "Unknown");
         System.out.println(Book.totalBooks+" is total books are borrowed today.");
